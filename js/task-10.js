@@ -3,7 +3,9 @@ function getRandomHexColor() {
 }
 const boxesContainer = document.querySelector("#boxes")
 const valueOfNumber = document.querySelector("input");
-function createBoxes(amount) {
+function createBoxes() {
+  const amount = valueOfNumber.value;
+  const items = [];
   let increasingWidth = 20;
   let increasingHeight = 20;
   for (let i = 0; i < amount; i += 1) {
@@ -13,16 +15,9 @@ function createBoxes(amount) {
     boxes.style.width = `${increasingWidth}px`;
     boxes.style.height = `${increasingHeight}px`;
     boxes.style.backgroundColor = getRandomHexColor()
-    boxesContainer.append(boxes)
-  }
+    items.push(boxes);
 }
- const valueResult = () => {
-  valueOfNumber.addEventListener("input", (event) => {
-  event.currentTarget.value;
-  });
-  return 3;
-  // функция не работает :(
-  // return тут для того, чтобы было видно результат других операций
+boxesContainer.append(...items)
 }
 const destroyBtn = document.querySelector('button[data-destroy]')
 function destroyBoxes() {
@@ -30,4 +25,4 @@ function destroyBoxes() {
 }
 destroyBtn.addEventListener("click", destroyBoxes)
 const createBtn = document.querySelector('button[data-create]')
-createBtn.addEventListener("click", createBoxes(valueResult()))
+createBtn.addEventListener("click", createBoxes)
