@@ -42,3 +42,9 @@ img {
   margin-left: 30px;
   margin-top: 30px;
 }
+
+/* task - 10 */
+#boxes {
+  display: flex;
+  flex-wrap: wrap;
+}
